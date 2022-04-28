@@ -13,10 +13,6 @@ export const counterReducer = (state: initialStateType = initialState, action: A
             return {
                 ...state, value: state.value + 1
             }
-        case "SET-VALUE-FROM-LOCAL-STORAGE":
-            return {
-                ...state, value: action.value
-            }
         case "MAX-VALUE":
             return {
                 ...state, maxValue: action.maxValue
@@ -45,7 +41,6 @@ export const setMaxValueAC = (maxValue: number) => ({type: 'MAX-VALUE', maxValue
 export const setMinValueAC = (minValue: number) => ({type: 'MIN-VALUE', minValue} as const)
 export const setValueAC = () => ({type: 'SET-VALUE'} as const)
 export const setButtonDisableAC = (disable: boolean) => ({type: 'SET-BUTTON-DISABLE', disable} as const)
-export const setValueFromLocalStorageAC = (value: number) => ({type: 'SET-VALUE-FROM-LOCAL-STORAGE', value} as const)
 
 export type IncValuesActionType = ReturnType<typeof incValueAC>
 export type ResetValueActionType = ReturnType<typeof resetValueAC>
@@ -53,10 +48,8 @@ export type SetMaxValueActionType = ReturnType<typeof setMaxValueAC>
 export type SetMinValueActionType = ReturnType<typeof setMinValueAC>
 export type SetValueActionType = ReturnType<typeof setValueAC>
 export type SetButtonDisableActionType = ReturnType<typeof setButtonDisableAC>
-export type SetValueFromLocalStorageActionType = ReturnType<typeof setValueFromLocalStorageAC>
 
 type ActionType = IncValuesActionType
-    | SetValueFromLocalStorageActionType
     | ResetValueActionType
     | SetMaxValueActionType
     | SetMinValueActionType
