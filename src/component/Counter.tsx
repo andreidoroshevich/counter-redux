@@ -84,7 +84,7 @@ const Counter: React.FC<CounterPropsType> = ({
                                 ? "Simple React Counter"
                                 : "Maximum value reached"}/>
 
-                    <Count className={(value === maxValue) && (maxValue !== 0) ? 'max-counter' : 'counter'}
+                    <Count className={(value === maxValue) && (maxValue !== 0) ? 'maxCounter' : 'counter'}
                            count={value}/>
 
                     <Button className={value !== minValue ? 'btn_reset' : ''} callBack={buttonResetHandler}

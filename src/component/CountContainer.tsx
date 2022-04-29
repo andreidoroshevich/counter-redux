@@ -3,6 +3,7 @@ import Counter from "./Counter";
 import {useDispatch, useSelector} from "react-redux";
 import {AppStateType} from "../bll/store";
 import {
+    ActionType,
     incValueAC,
     resetValueAC,
     setButtonDisableAC,
@@ -10,6 +11,7 @@ import {
     setMinValueAC,
     setValueAC
 } from "../bll/counterReducer";
+import {Dispatch} from "redux";
 
 const CountContainer: React.FC = () => {
 
@@ -17,7 +19,7 @@ const CountContainer: React.FC = () => {
     const maxValue = useSelector<AppStateType, number>(state => state.counter.maxValue)
     const minValue = useSelector<AppStateType, number>(state => state.counter.minValue)
     const disable = useSelector<AppStateType, boolean>(state => state.counter.disableButtonSet)
-    const dispatch = useDispatch()
+    const dispatch = useDispatch<Dispatch<ActionType>>()
 
     const buttonAddHandler = () => {
         dispatch(incValueAC())

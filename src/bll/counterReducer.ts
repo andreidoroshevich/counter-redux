@@ -49,7 +49,7 @@ export type SetMinValueActionType = ReturnType<typeof setMinValueAC>
 export type SetValueActionType = ReturnType<typeof setValueAC>
 export type SetButtonDisableActionType = ReturnType<typeof setButtonDisableAC>
 
-type ActionType = IncValuesActionType
+export type ActionType = IncValuesActionType
     | ResetValueActionType
     | SetMaxValueActionType
     | SetMinValueActionType
