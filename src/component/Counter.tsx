@@ -59,21 +59,13 @@ const Counter: React.FC<CounterPropsType> = ({
 
                     <div className={'valueItem'}><span>minValue: </span>
                         <Input onChange={onChangeMinValueHandler} value={minValue}
-                               className={((minValue >= maxValue)
-                                   || (minValue < 0)
-                                   || (maxValue < 0))
-                               && ((minValue !== 0)
-                                   || (maxValue !== 0))
+                               className={(minValue >= maxValue) && ((minValue !== 0) || (maxValue !== 0))
                                    ? 'red'
                                    : ''}/>
                     </div>
 
                     <Button
-                        className={(minValue >= maxValue)
-                        || (minValue < 0)
-                        || (maxValue < 0)
-                            ? ''
-                            : "setButton btn_add"}
+                        className={(minValue >= maxValue) ? '' : "setButton btn_add"}
                         disabled={(minValue >= maxValue) || (minValue < 0)}
                         name={'SET'} callBack={onClickSetSettings}/>
                 </div>
@@ -87,11 +79,12 @@ const Counter: React.FC<CounterPropsType> = ({
                     <Count className={(value === maxValue) && (maxValue !== 0) ? 'maxCounter' : 'counter'}
                            count={value}/>
 
-                    <Button className={value !== minValue ? 'btn_reset' : ''} callBack={buttonResetHandler}
-                            disabled={disable || value === minValue}
+                    <Button className={(value !== minValue) && (minValue <= maxValue) ? 'btn_reset' : ''} callBack={buttonResetHandler}
+                            disabled={disable || value === minValue || (minValue >= maxValue) && ((minValue !== 0) || (maxValue !== 0))}
                             name={'Reset'}/>
 
-                    <Button className={value < maxValue ? 'btn_add' : ''} disabled={disable || value === maxValue}
+                    <Button className={(value < maxValue) && (minValue <= maxValue) ? 'btn_add' : ''}
+                            disabled={disable || value === maxValue || (minValue >= maxValue) && ((minValue !== 0) || (maxValue !== 0))}
                             callBack={buttonAddHandler} name={'Increment'}/>
                 </div>
             </div>

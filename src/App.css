@@ -48,6 +48,12 @@ button {
   color: white;
   border-radius: 10px;
   background: #578ff6;
+  cursor: pointer;
+}
+
+.disabled {
+  opacity: 0.5;
+  cursor:none;
 }
 
 .red {
@@ -56,9 +62,6 @@ button {
   animation: blink_shadow 1000ms infinite;
 }
 
-.disabled {
-  opacity: 0.5;
-}
 
 .btn_add:hover {
   box-shadow: 0 0 40px 40px green inset;
